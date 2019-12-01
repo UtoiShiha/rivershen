@@ -12,12 +12,15 @@
     <title>RiverShen</title>
 </head>
 <style>
+body{
+    margin: 0;
+}
 ul{
     list-style-type:none;
     padding: 0;
 }
 li{
-    height:130px;
+    height:100px;
     width:100%;
 }
 li p{
@@ -44,15 +47,25 @@ li p{
 .summoner_select{
     width:70px;
 }
-.summoner_timer .button{
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: aqua;
-    z-index: 100;
-}
 .summoner_timer .pietimer{
     pointer-events: none;
+}
+.version{
+    text-align: right;
+    font-size: 13px;
+}
+#header{
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26)
+}
+#header h1{
+    font-size: 20px;
+    margin: 0;
+}
+
+#header p{
+    margin: 0;
+    text-align: center;
+    font-style: italic;
 }
 </style>
 <body>
@@ -61,7 +74,7 @@ li p{
             <h1>RiverShen</h1>        
             <p>「{{shen}}」- SHEN</p>
         </div>
-        <p>LoL's Version:{{version}}</p>
+        <p class="version">LoL's Version:{{version}}</p>
         <ul>
             <li v-for="enemy in enemies">
                 <p>{{enemy.name}}</p>
