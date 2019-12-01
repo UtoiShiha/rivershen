@@ -37,6 +37,15 @@
             $this.addClass('fill');
           }
           $this.pietimer('drawTimer', 0);
+        }else{
+          $this.data('pietimer', state);
+          if (state.showPercentage) {
+            $this.find('.percent').show();
+          }
+          if (state.fill) {
+            $this.addClass('fill');
+          }
+          $this.pietimer('drawTimer', 0);
         }
       });
     },
@@ -73,10 +82,8 @@
         if(seconds < 0){
           seconds = 0;
         }
-        let sec = ("0"+Math.round(seconds)).substr(-2);
-        let min = ("0"+Math.round(seconds/60)).substr(-2);
-        
-        console.log(seconds);
+        let sec = ("0"+Math.floor(seconds%60)).substr(-2);
+        let min = ("0"+Math.floor(seconds/60)).substr(-2);
         $this.find('.percent').html(min+":"+sec);
         if (data.showPercentage) {
           $this.find('.percent').show();
