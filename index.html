@@ -15,6 +15,19 @@
 ul{
     list-style-type:none;
 }
+li{
+    height:200px;
+    width:100%;
+}
+li p{
+    text-align: left;
+}
+.summoner_timer{
+    background-color: aqua;
+    display: inline-block;
+    width:100px;
+    height:100px;
+}
 </style>
 <body>
     <div id="app">
@@ -36,13 +49,13 @@ ul{
         </div>
         <ul>
             <li v-for="enemy in enemies">
-                {{enemy.id}}
+                <p>{{enemy.name}}</p>
                     <div class="summoner_timer">
                         <div :id="getTimerId(enemy.id,1)"></div>
                         <button @click="startTimer(enemy.id,1)">開始</button>
                     </div>
                     <div class="summoner_timer">
-                    <div :id="getTimerId(enemy.id,2)"></div>
+                        <div :id="getTimerId(enemy.id,2)"></div>
                         <button @click="startTimer(enemy.id,2)">開始</button>
                     </div>
             </li>
@@ -68,7 +81,36 @@ new Vue({
                 champion:0,
                 spell1id:4,
                 spell2id:1,
+            },
+            {
+                id:2,
+                name:"jg",
+                champion:0,
+                spell1id:4,
+                spell2id:21,
+            },
+            {
+                id:3,
+                name:"mid",
+                champion:0,
+                spell1id:4,
+                spell2id:21,
+            },
+            {
+                id:4,
+                name:"bot",
+                champion:0,
+                spell1id:4,
+                spell2id:21,
+            },
+            {
+                id:5,
+                name:"sup",
+                champion:0,
+                spell1id:4,
+                spell2id:21,
             }
+
         ],
         spells:[]
     },
@@ -118,6 +160,7 @@ new Vue({
             .catch((error)=>console.log(error));
         },
         startTimer:function(enemyId,spellNo){
+            console.log(this.getTimerId(enemyId,spellNo));
             $('#'+this.getTimerId(enemyId,spellNo)).pietimer('start');
         },
         timerStart:function(){
@@ -147,7 +190,7 @@ new Vue({
                 fill: false,
                 showPercentage: true,
                 callback: function() {
-                    $('#timer').pietimer('reset');
+                    $('#'+id).pietimer('reset');
                 }
             });
         },

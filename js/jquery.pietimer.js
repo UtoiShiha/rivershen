@@ -22,7 +22,6 @@
       };
 
       state = $.extend(state, options);
-
       return this.each(function() {
         var $this = $(this);
         var data = $this.data('pietimer');
@@ -38,6 +37,7 @@
           }
           $this.pietimer('drawTimer', 0);
         }else{
+          $this.addClass('pietimer');
           $this.data('pietimer', state);
           if (state.showPercentage) {
             $this.find('.percent').show();
@@ -51,6 +51,7 @@
     },
 
     stopWatch: function() {
+      console.log("a")
       var data = $(this).data('pietimer');
       if (data) {
         var seconds = (data.timerFinish-(new Date().getTime()))/1000;
@@ -102,7 +103,7 @@
       if (data) {
         data.timerFinish = new Date().getTime()+(data.timerSeconds*1000);
         $(this).pietimer('drawTimer', 0);
-        data.timer = setInterval("$this.pietimer('stopWatch')", 50);
+          data.timer = setInterval(()=>{$(this).pietimer('stopWatch')}, 50);
       }
     },
 
