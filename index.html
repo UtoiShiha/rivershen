@@ -152,7 +152,7 @@ new Vue({
             });
         },
         getResource:async function(){
-            let url = "http://ddragon.leagueoflegends.com/cdn/"+this.version+"/data/ja_JP/summoner.json";
+            let url = "https://ddragon.leagueoflegends.com/cdn/"+this.version+"/data/ja_JP/summoner.json";
             await fetch(url,{
                 method:'GET',
                 SameSite:'None'
