@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="pietimer.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="./js/jquery.pietimer.js"></script>
+    
+    <title>RiverShen</title>
+</head>
+<body>
+    <div id="app">
+        
+        <div><button @click="timerStart">開始</button></div>
+        <div style="width: 100%;height:100px">
+            <div id="timer"></div>
+        </div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+        <div><button @click="timerStart">開始</button></div>
+    </div>
+</body>
+<script>
+
+new Vue({
+    el: '#app',
+    data: {
+        message:"aaa"
+    },
+    mounted() {
+        $('#timer').pietimer('init',{
+                timerSeconds: 10,
+                color: '#234',
+                fill: false,
+                showPercentage: true,
+                callback: function() {
+                    $('#timer').pietimer('reset');
+                }
+            });      
+    },
+    methods:{
+        timerStart:function(){
+            $('#timer').pietimer('start');
+
+        }
+    }
+  })
+
+</script>
+</html>
