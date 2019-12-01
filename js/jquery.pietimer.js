@@ -85,7 +85,7 @@
         }
         let sec = ("0"+Math.floor(seconds%60)).substr(-2);
         let min = ("0"+Math.floor(seconds/60)).substr(-2);
-        $this.find('.percent').html(min+":"+sec);
+        $this.find('.percent').html(Math.floor(seconds));
         if (data.showPercentage) {
           $this.find('.percent').show();
         }
